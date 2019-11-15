@@ -1,7 +1,6 @@
 module.exports = {
-    head() {
-        return {
+    head:{
             title : 'NodeBird',
         }
-    }
+    
 };
