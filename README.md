@@ -65,7 +65,7 @@ export default {
   layout (context) {
     return 'blog'
   }
-  head () {
+  head () { // head태그에 들어가는 것들을 조종할 수 있다.
     return {
         title: this.title,
         meta: [
@@ -76,5 +76,16 @@ export default {
 }
 
 ```
-
+* layouts/default.vue 단에서 공통으로도 head를 넣어서 사용할 수도있다.
+* head가 하위에도 있어서 중복이 된다면 nuxt.config.js파일을 만들어서 중복제거 설정을 할 수있다.
+  - nuxt.config.js파일 생성. head를 이곳에 넣어서 중복을 제거 할 수도있다.
+```
+module.exports = {
+    head() {
+        return {
+            title : 'NodeBird',
+        }
+    }
+};
+```
 
