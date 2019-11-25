@@ -40,7 +40,7 @@
   - 하지만 모든 페이지에 들어가는 중복된 코드가 되므로 nuxt에서 중복코딩부분을 처리해줘야 한다. 
     - layouts 폴더를 생성하고 default.vue파일을 생성한다.
     - 공통된 template부분인 nuxt-link부분을 default.vue쪽으로 옮긴다.
-    - 그리고 달라지는 부분 router-view에 해당하는 부분을 코딩한다. ---> nuxt
+    - 그리고 달라지는 부분 router-view에 해당하는 부분을 코딩한다. ---> **nuxt**
     - layouts폴더 만들고 default.vue를 만들면 서버가 자동실행이 안되는거 같음... 재실행
 ```
 <div>
@@ -49,7 +49,7 @@
         <nuxt-link to="/profile">Profile</nuxt-link>
         <nuxt-link to="/signup">Signup</nuxt-link>
     </div>
-    <nuxt />
+    <nuxt />    // router-view 에 해당하는 영역
 </div>
 ```
 * nuxt API 참조(https://ko.nuxtjs.org/api/)
