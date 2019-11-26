@@ -134,6 +134,6 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
 </template>
 ```
 * 아이콘관련 (https://vuetifyjs.com/en/components/icons)
-* prepend-icon="mdi-magnify" 이런식으로 사용하면 되는데 (https://materialdesignicons.com/)에서 사용 아이콘 이름에서 **mdi-**를 앞에 꼭 붙여준다.
+* prepend-icon="mdi-magnify" 이런식으로 사용하면 되는데 (https://materialdesignicons.com/)에서 사용 아이콘 이름에서 **mdi-** 를 앞에 꼭 붙여준다.
 
 
