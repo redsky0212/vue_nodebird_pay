@@ -1,7 +1,7 @@
 <template>
     <div>
         
-        main
+        main {{name}}
     </div>
 </template>
 

@@ -24,7 +24,7 @@
   - 주소를 좀 더 복잡하게 하려면 pages안에 폴더를 더 깊게 만들어서 파일을 생성하여 만들면 된다.
 * nuxt는 기본으로 hot reloader가 적용되어있어서 파일소스를 수정하면 띄워진 브라우져가 자동으로 바뀌어진다.
 * nuxt는 눈속임 url이 아닌 실제 파일의 url이다. SSR
-  - 실제 각각의 파일이 페이지 이면 화면 전환시 깜빡이는 문제가 있는데 그런 점을 자연스럽게 처리하는 방법도 내부적으로 하고있다.
+  - 실제 각각의 파일이 페이지이면 화면 전환시 깜빡이는 문제가 있는데 그런 점을 자연스럽게 처리하는 방법도 내부적으로 하고있다.
 
 ## nuxt router와 layouts, head 
 * pages/index.vue 에 nuxt-link를 넣어서 서로 화면전환을 해본다.
@@ -38,9 +38,9 @@
 ```
 * 3개 페이지 모두 네비게이션이 필요하므로 모두 코딩을 한다.
   - 하지만 모든 페이지에 들어가는 중복된 코드가 되므로 nuxt에서 중복코딩부분을 처리해줘야 한다. 
-    - layouts 폴더를 생성하고 default.vue파일을 생성한다.
+    - **layouts** 폴더를 생성하고 default.vue파일을 생성한다.
     - 공통된 template부분인 nuxt-link부분을 default.vue쪽으로 옮긴다.
-    - 그리고 달라지는 부분 router-view에 해당하는 부분을 코딩한다. ---> **nuxt**
+    - 그리고 화면전환시 달라지는 부분 router-view에 해당하는 부분을 코딩한다. ---> **nuxt**
     - layouts폴더 만들고 default.vue를 만들면 서버가 자동실행이 안되는거 같음... 재실행
 ```
 <div>
@@ -89,5 +89,49 @@ module.exports = {
 ```
 
 ## nuxt를 vuetify와 연결하기
-* 
+* 디자인 관련 .. 자주쓰는 UI컴포넌트.
+* 설치 ( npm i vuetify @nuxtjs/vuetify )
+  - @nuxtjs/vuetify를 설치하는 이유는 nuxt자체는 외부 lib를 연결하는 방법이 조금 독특하므로
+  - 보통은 import하고 Vue.use를 이용하여 연결하는데 nuxt에서는 이렇게 하지않고 다르게 한다.
+  - nuxt페이지는 하나가 아니므로 모든 페이지에 Vue.use해주기(중복) 힘드므로 nuxt.config.js에서 아래와 같이 추가한다.
+  - nuxt.config.js에 이렇게 추가하면 사실 nuxt가 내부적으로 모든 페이지에 vuetify plugins를 Vue.use 해준다.
+```
+modules:[
+    '@nuxtjs/axios',
+],
+devModules: [
+    '@nuxtjs/vuetify',  // 이곳에 추가 되어야 아래 vuetify설정을 할 수 있다.
+],
+vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify 설정을 할 수 있다.
+
+}
+```
+* axios도 같은 계념으로 설치를 하고 nuxt.config.js쪽에 적어준다. ( npm i @nuxtjs/axios )
+
+## vuetify 레이아웃과 아이콘 (https://vuetifyjs.com/en/getting-started/quick-start)
+* vuetify의 api는 항상 버전별로 달라질 수 있으므로 항상 공식문서를 확인해야한다.
+* 가장 최상위 부분에는 v-app을 넣어준다. (https://vuetifyjs.com/en/components/application)
+* 우선 상단 header부분을 만들어 본다. 사용 vuetify는 v-toolbar를 사용한다.(https://vuetifyjs.com/en/components/toolbars#toolbars)
+```
+// default.vue파일
+<template>
+    <v-app>
+        <div>
+            <v-toolbar dark color="green">
+                <v-toolbar-title>
+                    <nuxt-link to="/">Nodebird</nuxt-link>
+                </v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-toolbar-items>
+                    <v-text-field label="검색" hide-details prepend-icon="mdi-magnify" :style="{display:'flex', alignItems:'center'}"></v-text-field>
+                    <v-btn nuxt to="/profile" :style="{display:'flex', alignItems:'center'}"><div>프로필</div></v-btn>
+                    <v-btn nuxt to="/signup" :style="{display:'flex', alignItems:'center'}"><div>회원가입</div></v-btn>
+                </v-toolbar-items>
+            </v-toolbar>
+        </div>
+        <nuxt />
+    </v-app>
+</template>
+```
+
 

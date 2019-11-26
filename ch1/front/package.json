@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev" : "nuxt"
+    "dev": "nuxt"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@nuxtjs/axios": "^5.8.0",
+    "@nuxtjs/vuetify": "^1.9.0",
     "nuxt": "^2.10.2",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vuetify": "^2.1.11"
   }
 }
