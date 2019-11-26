@@ -116,7 +116,7 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
 // default.vue파일
 <template>
     <v-app>
-        <div>
+        <nav>
             <v-toolbar dark color="green">
                 <v-toolbar-title>
                     <nuxt-link to="/">Nodebird</nuxt-link>
@@ -128,12 +128,23 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
                     <v-btn nuxt to="/signup" :style="{display:'flex', alignItems:'center'}"><div>회원가입</div></v-btn>
                 </v-toolbar-items>
             </v-toolbar>
-        </div>
+        </nav>
         <nuxt />
     </v-app>
 </template>
 ```
 * 아이콘관련 (https://vuetifyjs.com/en/components/icons)
 * prepend-icon="mdi-magnify" 이런식으로 사용하면 되는데 (https://materialdesignicons.com/)에서 사용 아이콘 이름에서 **mdi-** 를 앞에 꼭 붙여준다.
+
+## vuetify 그리드 시스템 사용( https://vuetifyjs.com/en/components/grids )
+* 우선 layout은 가로로쪼개고 세로로쪼개는 형태로 구성한다.
+* 12 grid중에 앞쪽4는 좌측메뉴 나머지 8은 컨텐츠부부능로 나눌꺼임.
+* xs, sm, md, lg, xl에 관련하여 그리드 시스템을 확인해보자. (화면크기별로 반응형을 적용해주는 것)
+```
+<v-row>
+    <v-col cols="12" xs="12" md="4">로그인창</v-col>
+    <v-col cols="12" xs="12" md="8">컨텐츠<nuxt /></v-col>
+</v-row>
+```
 
 
