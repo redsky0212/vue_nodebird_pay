@@ -147,4 +147,7 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
 </v-row>
 ```
 
+## 기본페이지 화면만들기
+* 
+
 
