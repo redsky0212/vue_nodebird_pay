@@ -169,6 +169,7 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
 ## 폼 검증하기
 * db, backend가 없기 때문에 dumy데이터를 만들어 회원가입 화면 코딩.
   - vuetify에서 제공하는 valid, rules 기능... vuetify를 안쓰면 모두 자체 구현을 해줘야 하는 기능이다.
+    - valid값은 rules가 모두 참 일때 true가 됨.
   - 여기서 사용한 vue 다양한 방법
     - 이벤트 바인딩 @submit... : 이벤트 바인딩 축약방법
     - v-model : data의 변수를 연결
@@ -193,5 +194,42 @@ data() {
     };
   },
 ```
+* 로그인폼 또한 코딩(ch1 : components/LoginForm.vue 참조)
+  - 값이 모두 유효하지 않았을 경우 :disabled=false 부분을 적용하여 로그인 버튼을 비활성화 시키는 방법코딩.
+  - valid값은 rules가 모두 참 일때 true가 됨.
+
+## eslint 도입하기 (npm i eslint eslint-plugin-vue)
+* 여러사람이 코딩할 경우 스타일을 지정해줘야 한다. 그래서 eslint를 도입
+  - 사람마다 코딩 스타일이 다르므로 그것을 정해진 규칙대로 코딩스타일을 맞춰서 하게끔 하기 위함.
+* eslint를 npm 으로 설치를 한 다음. 루트에 .eslintrc파일을 생성하고 아래 코딩(eslint에 대한 설정)
+* 그다음 package.json의 scripts부분에 lint라는것을 하나 만들어서 npm run lint를 했을때 코딩 스타일을 체크할 수 있는것을 실행하게끔 만든다.
+  - 기본 eslint의 스타일가이드중에 특정 가이트를 끄고자 하면 아래와 같이 'rules'에서 해당 가이드명을 off해주면 된다.
+```
+"scripts": {
+    "dev": "nuxt",
+    "lint": "eslint **/*"   // 모든파일을 다 검사
+  },
+```
+```
+{
+  "parserOptions": {
+    "ecmaVersion": 2019,    // js 버전
+    "sourceType": "module"  // js 코드에서 모듈 시스템을 이용하여 할거기 때문에 module
+  },
+  "env": {
+    "browser": true,    // 브라우져 환경에서 볼꺼기 때문에 true
+    "node": true        // vue에서 nodejs를 쓰기때문에 true
+  },
+  "extends": [          // 여러가지 룰들을 켜기 위함.(plugin들을 모아두는곳)
+    "plugin:vue/recommended"    // vue를 사용할때  eslint가 추천하는 기본 코딩 스타일을 켬. 우리가 만든 코딩스타일을 지정하려면 바꿔준다.
+  ],
+  "plugins": [],
+  "rules": {
+    "vue/max-attributes-per-line": "off",
+    "vue/singleline-html-element-content-newline": "off"
+  }
+}
+```
+* 
 
 
