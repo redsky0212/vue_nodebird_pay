@@ -139,7 +139,14 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
 ## vuetify 그리드 시스템 사용( https://vuetifyjs.com/en/components/grids )
 * 우선 layout은 가로로쪼개고 세로로쪼개는 형태로 구성한다.
 * 12 grid중에 앞쪽4는 좌측메뉴 나머지 8은 컨텐츠부부능로 나눌꺼임.
-* xs, sm, md, lg, xl에 관련하여 그리드 시스템을 확인해보자. (화면크기별로 반응형을 적용해주는 것)
+* cols는 전체를 몇개로 나눌지... 보통 12로 나누는 그리드시스템을 많이 사용한다.
+* xs, sm, md, lg, xl에 관련하여 그리드 시스템을 확인해보자. (화면크기별로 반응형을 적용해주는 것, 공식문서참조)
+  - xs : 모바일 화면크기정도 일때 
+  - sm : 태블릿 정도의 사이즈 일때
+  - md : 큰 태블릿 또는 노트북 정도의 크기일때
+  - lg : desktop 정도의 크기일때
+  - xl : 울트라와이드
+
 ```
 <v-row>
     <v-col cols="12" xs="12" md="4">로그인창</v-col>
@@ -148,6 +155,16 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
 ```
 
 ## 기본페이지 화면만들기
-* 
+* nuxt환경에서 pages폴더의 파일들은 모두 화면 페이지 관련 파일들이고 components폴더의 .vue파일들은 일반적으로 재사용되는 파일들을 모아둔다.
+* components폴더에 LoginForm.vue, PostCard.vue파일을 생성하고 template안에 v-container로 처음 감싼다.
+  - v-container는 div로 감싼다라고 생각하면 될듯.... 다닥다닥 붙지않고 padding을 조금 주면서 감싸는 느낌...
+  - 계속해서 v-card를 넣고 그 안쪽에 로그인폼을 코딩한다.(https://vuetifyjs.com/en/components/cards)
+* import 할때 상대경로를 ../../ 이렇게 하지 않고 간단하게 '~'로 루트폴더를 접근하여 사용할 수 있다. 정확하게 말하면 소스의 루트...
+  - 현재 프로젝트는 루트에 소스들이 같이 있으므로 특별히 구분은 안되어있음.
+* 계속해서 회원가입폼 코딩 시작.
+* 메인에 들어갈 PostCard.vue 템플릿 코딩.
+* no-gutters를 통해 layout간 padding을 제거할 수 있습니다. (https://vuetifyjs.com/en/components/grids#no-gutters)
+
+
 
 
