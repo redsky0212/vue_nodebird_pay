@@ -154,7 +154,7 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
 </v-row>
 ```
 
-## 기본페이지 화면만들기
+## 기본페이지 화면만들기(각 .vue파일 소스 참조)
 * nuxt환경에서 pages폴더의 파일들은 모두 화면 페이지 관련 파일들이고 components폴더의 .vue파일들은 일반적으로 재사용되는 파일들을 모아둔다.
 * components폴더에 LoginForm.vue, PostCard.vue파일을 생성하고 template안에 v-container로 처음 감싼다.
   - v-container는 div로 감싼다라고 생각하면 될듯.... 다닥다닥 붙지않고 padding을 조금 주면서 감싸는 느낌...
@@ -164,7 +164,28 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
 * 계속해서 회원가입폼 코딩 시작.
 * 메인에 들어갈 PostCard.vue 템플릿 코딩.
 * no-gutters를 통해 layout간 padding을 제거할 수 있습니다. (https://vuetifyjs.com/en/components/grids#no-gutters)
+* 마지막 FollowList.vue파일을 공통으로 생성하고 profile.vue화면에서 가져와 사용하여 코딩한다.
 
-
+## 폼 검증하기
+* db, backend가 없기 때문에 dumy데이터를 만들어 회원가입 화면 코딩.
+```
+<v-text-field
+    v-model="email"
+    label="이메일"
+    type="email"
+    :rules="emailRules" // vuetify에서 제공하는 validation 룰을 정해주는 방법
+    required
+/>
+data() {
+    return {
+      valid: false, // 회원가입에 값들이 모두 잘 들어가 있는지 아닌지에 대한 vuetify에서 제공하는 true, false값 자동셋팅 해줌.
+      email: '',
+      emailRules: [
+        v => !!v || '이메일은 필수입니다.',
+        v => /.+@.+/.test(v) || '이메일이 유효하지 않습니다.',  //vuetify에서 자동으로 할 수 있게 제공해 준다.
+      ],
+    };
+  },
+```
 
 
