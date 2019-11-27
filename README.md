@@ -169,6 +169,11 @@ vuetify: {  // 위에 devMudules에 적어 있기 때문에 이곳에 vuetify �
 ## 폼 검증하기
 * db, backend가 없기 때문에 dumy데이터를 만들어 회원가입 화면 코딩.
   - vuetify에서 제공하는 valid, rules 기능... vuetify를 안쓰면 모두 자체 구현을 해줘야 하는 기능이다.
+  - 여기서 사용한 vue 다양한 방법
+    - 이벤트 바인딩 @submit... : 이벤트 바인딩 축약방법
+    - v-model : data의 변수를 연결
+    - ref설정 사용시에는 this.$refs.설정이름.validate() : validate()는 vuetify에서 제공.
+    - vuetify의 valid, rules 기능
 ```
 <v-text-field
     v-model="email"
