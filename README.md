@@ -199,11 +199,15 @@ data() {
   - valid값은 rules가 모두 참 일때 true가 됨.
 
 ## eslint 도입하기 (npm i eslint eslint-plugin-vue)
+* 보통 실무에서는 폴더구조다음 eslint를 설정하는 부분을 중요시 한다.(test, cicd 관련도 찾아보자.)
 * 여러사람이 코딩할 경우 스타일을 지정해줘야 한다. 그래서 eslint를 도입
   - 사람마다 코딩 스타일이 다르므로 그것을 정해진 규칙대로 코딩스타일을 맞춰서 하게끔 하기 위함.
 * eslint를 npm 으로 설치를 한 다음. 루트에 .eslintrc파일을 생성하고 아래 코딩(eslint에 대한 설정)
 * 그다음 package.json의 scripts부분에 lint라는것을 하나 만들어서 npm run lint를 했을때 코딩 스타일을 체크할 수 있는것을 실행하게끔 만든다.
   - 기본 eslint의 스타일가이드중에 특정 가이트를 끄고자 하면 아래와 같이 'rules'에서 해당 가이드명을 off해주면 된다.
+    - package.json에 lint로 scripts정해놓았기 때문에 npm run lint하면 에러내용을 볼 수 있다 여기서 해당 rule을 끌 수 있다.
+    - 들여쓰기 관련하여 warning이 발생했을때 vscode에서 settings를 변경하는 방법은 file-preferences-settings에서 Commonly Used에서
+      - Tab Size : 2, Insert Spaces : 체크, Detact Indentation:체크해제 해서 사용.
 ```
 "scripts": {
     "dev": "nuxt",
@@ -230,6 +234,11 @@ data() {
   }
 }
 ```
-* 
+* 꼭 검사하지 않아도 되는 파일들은 .eslintignore 파일을 만들어서 검사하지 않을 파일들을 적어둔다.
+  - 원래 package.json에서 error가 많이 났었는데 제외항목으로 빼놓으니까 error가 통과됨.
+
+# Vuex로 데이터 관리하기
+## Vuex 모듈 시스템
+* store폴더를 생성
 
 
