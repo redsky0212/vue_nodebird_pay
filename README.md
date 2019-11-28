@@ -10,6 +10,10 @@
 * vue가이드 : https://kr.vuejs.org/v2/guide/index.html
 * nuxt : https://ko.nuxtjs.org/guide
 
+## git
+* git에서 버전관리를 할 경우 node_modules, .nuxt같은 것들은 버전관리에서 빼줘야 하므로 미리 .gitignore파일을 만들어서 제외 항목을 작성한다.
+  - ignore 해야할 목록을 알려주는 사이트 (https://www.gitignore.io/)
+
 ## nuxt, vue설치하고 pages만들기
 * npm i vue nuxt
 * vue cli, nuxt create, 는 사용하지 않음.
@@ -237,8 +241,14 @@ data() {
 * 꼭 검사하지 않아도 되는 파일들은 .eslintignore 파일을 만들어서 검사하지 않을 파일들을 적어둔다.
   - 원래 package.json에서 error가 많이 났었는데 제외항목으로 빼놓으니까 error가 통과됨.
 
-# Vuex로 데이터 관리하기
-## Vuex 모듈 시스템
-* store폴더를 생성
-
+# Vuex로 데이터 관리하기 (ch2)
+## Vuex 모듈 시스템(https://ko.nuxtjs.org/guide/vuex-store)
+* nuxt에는 vuex가 포함되어있기때문에 따로 설치가 필요없다.
+* nuxt에서는 두가지 store모드를 제공한다.
+  - 클래식모드, 모듈모드
+  - 클래식모드 : Vuex.Store의 store 하나를 export하여 사용하는 형식(여러가지 파일로 나누어 사용하기 힘듬)
+  - 모듈모드 : store폴더에서 기능별로 각각 js파일로 분리하여 state, mutations, actions등을 따로 export하여 분리하는 방식.
+* store폴더 생성 : index.js, posts.js, users.js 파일 생성.
+  - 기능별로 상태관리를 하기 위하여 모듈시스템 방식으로 파일로 나누어 3개의 파일을 생성한다. index.js는 전체 상태에 관련된 코딩을 한다.
+  
 
