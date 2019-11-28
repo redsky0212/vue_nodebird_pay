@@ -229,7 +229,7 @@ data() {
   ],
   "plugins": [],
   "rules": {
-    "vue/max-attributes-per-line": "off",
+    "vue/max-attributes-per-line": "off", // eslint에서 걸러내고자 하는 기능은 이렇게 빼준다.
     "vue/singleline-html-element-content-newline": "off"
   }
 }
