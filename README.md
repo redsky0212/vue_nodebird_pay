@@ -285,4 +285,5 @@ data() {
   - ...mapState('users', ['me']), 나 ...mapState(['users/me']), 이런식으로 사용 가능하다. (https://vuex.vuejs.org/guide/modules.html#binding-helpers-with-namespace)
 
 ## 게시글 작성 /삭제 더미 데이터
-* 
+* props로 받는 값들은 최대한 자세히 적어주는것이 좋다.
+* 게시글삭제는 vuetify에서 v-menu를 사용하여 더보기 부분에 붙여준다.
