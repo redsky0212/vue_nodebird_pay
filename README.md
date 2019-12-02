@@ -282,4 +282,4 @@ data() {
   - 하지만 index.js안에 있는 mutations 를 호출할때는 세번째인자로 객체 {root:true} 해준다. commit('addMainPost', payload, {root:true})
 * 서버 통신시 받을 json 모양을 서버개발자와 미리 상의 하는게 좋음.
 * mapState를 사용해본다.
-  - ...mapState('users', ['me']), 나 ...mapState(['users/me']), 이런식으로 사용 가능하다.
+  - ...mapState('users', ['me']), 나 ...mapState(['users/me']), 이런식으로 사용 가능하다. (https://vuex.vuejs.org/guide/modules.html#binding-helpers-with-namespace)
