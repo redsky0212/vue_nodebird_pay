@@ -1,5 +1,6 @@
 export const state = () => ({
   mainPosts: [],
+  name: ''
 });
 
 export const mutations = {
@@ -13,6 +14,12 @@ export const mutations = {
   addComment(state, payload) {
     const index = state.mainPosts.findIndex(v => v.id === payload.postId);
     state.mainPosts[index].Comments.unshift(payload);
+  },
+  addName(state){
+    state.name = 'test!!!';
+  },
+  removeName(state){
+    state.name = '';
   }
 };
 

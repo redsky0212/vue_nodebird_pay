@@ -250,5 +250,9 @@ data() {
   - 모듈모드 : store폴더에서 기능별로 각각 js파일로 분리하여 state, mutations, actions등을 따로 export하여 분리하는 방식.
 * store폴더 생성 : index.js, posts.js, users.js 파일 생성.
   - 기능별로 상태관리를 하기 위하여 모듈시스템 방식으로 파일로 나누어 3개의 파일을 생성한다. index.js는 전체 상태에 관련된 코딩을 한다.
+  - 만들어진 파일에서 state, mutations, actions를 모두 따로 export한다.
+  - nuxt는 store폴더가 생성되면 알아서 Vue.use를 해서 사용할 수 있게끔 자동으로 만들어준다.
+* 만들어진 store폴더내의 파일들 .js들에 접근할때는 각 화면에서 **this.$store.state.파일명.스테이트명**  이렇게 접근가능
+  - mutations으로 접근할때는 **this.$store.commit('파일명/mutation명')** 이렇게 접근가능.
   
 
