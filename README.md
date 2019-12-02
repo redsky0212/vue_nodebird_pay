@@ -254,5 +254,15 @@ data() {
   - nuxt는 store폴더가 생성되면 알아서 Vue.use를 해서 사용할 수 있게끔 자동으로 만들어준다.
 * 만들어진 store폴더내의 파일들 .js들에 접근할때는 각 화면에서 **this.$store.state.파일명.스테이트명**  이렇게 접근가능
   - mutations으로 접근할때는 **this.$store.commit('파일명/mutation명')** 이렇게 접근가능.
-  
+
+## Vuex actions
+* 회원가입 더비데이터 구현
+  - store의 users.js모듈에서 작업
+  - mutations는 동기적작업, actions는 비동기적 작업.
+  - commit 은 mutaions를 실행하는 것, dispatch는 actions를 실행하는것.
+  - 그래서 actions에는 서버에 요청을 보내는 ajax호출을 한다.
+
+## 로그인/회원가입 더미 데이터 처리
+* 미리 데이터를 예상하여 더미데이터를 만든다.
+* 
 
