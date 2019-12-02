@@ -272,3 +272,14 @@ data() {
   - commit, dispatch 비동기 처리 후 값의 변화에 따라 아래쪽 소스 처리를 진행하게끔 처리 필요.
   - commit, dispatch함수는 자체적으로 promise함수 이므로 해당함수 호출 후 .then() 또는 .catch() 를 붙여서 사용할 수 있다. 또는 async, await 으로 처리할 수 있다.
 
+## 게시글 작성 폼 만들기
+* PostForm.vue 파일 생성하여 코딩
+  - v-textarea사용 ( https://vuetifyjs.com/ko/components/textarea )
+  - vuetify의 textarea관련 각종 props를 설정해주고 해당 컴포넌트를 메인화면에 붙인다.
+  - 단 로그인 했을때만 보여야 하므로 store의 me값을 참조해서 보여줄지 여부를 체크(this.$store.state.users.me)
+  - 게시글 관련 actions와도 연결해주고 state에 값을 셋팅해준다. 
+* store폴더의 각 모듈들 내부에서 commit 같은거 할때는 모듈명을 앞에 안붙인다. commit('addMainPost', payload)
+  - 하지만 index.js안에 있는 mutations 를 호출할때는 세번째인자로 객체 {root:true} 해준다. commit('addMainPost', payload, {root:true})
+* 서버 통신시 받을 json 모양을 서버개발자와 미리 상의 하는게 좋음.
+* mapState를 사용해본다.
+  - ...mapState('users', ['me']), 나 ...mapState(['users/me']), 이런식으로 사용 가능하다.
