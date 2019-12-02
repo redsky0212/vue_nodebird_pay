@@ -263,6 +263,12 @@ data() {
   - 그래서 actions에는 서버에 요청을 보내는 ajax호출을 한다.
 
 ## 로그인/회원가입 더미 데이터 처리
+* 폼들은 component로 파일분리해서 코딩하는게 좋음.
 * 미리 데이터를 예상하여 더미데이터를 만든다.
-* 
+* 로그인, 로그아웃, 회원가입등 코딩 처리
+* 로그인 후 화면전환시 router 사용법은 공식문서 참조 ( https://router.vuejs.org/guide/essentials/navigation.html )
+  - this.$router.push({path: '/'})
+* commit, dispatch함수들은 모두 비동기 이므로 javascript가 순서대로 읽히는 순서는 정해져 있지 않으므로 반드시 아래쪽 소스는 commit, dispatch처리 후 값의 변화에 따라 처리가 되게끔 해야한다.
+  - commit, dispatch 비동기 처리 후 값의 변화에 따라 아래쪽 소스 처리를 진행하게끔 처리 필요.
+  - commit, dispatch함수는 자체적으로 promise함수 이므로 해당함수 호출 후 .then() 또는 .catch() 를 붙여서 사용할 수 있다. 또는 async, await 으로 처리할 수 있다.
 

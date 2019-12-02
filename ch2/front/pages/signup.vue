@@ -75,14 +75,28 @@ export default {
   },
   methods: {
     onSubmitForm() {
-      console.log(this.valid);
       if (this.$refs.form.validate()) {
-        alert('회원가입 시도!');
-      } else {
-        alert('폼이 유효하지 않습니다.');
+        this.$store.dispatch('users/signUp', {
+          nickname: this.nickname,
+          email: this.email,
+        })
+          .then(() => {
+            this.$router.push({
+              path: '/',
+            });
+          })
+          .catch(() => {
+            alert('회원가입 실패');
+          });
       }
     }
+    
   },
+  head(){
+    return {
+      title: '회원가입',
+    }
+  }
 }
 </script>
 
