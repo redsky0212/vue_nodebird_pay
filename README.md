@@ -283,3 +283,6 @@ data() {
 * 서버 통신시 받을 json 모양을 서버개발자와 미리 상의 하는게 좋음.
 * mapState를 사용해본다.
   - ...mapState('users', ['me']), 나 ...mapState(['users/me']), 이런식으로 사용 가능하다. (https://vuex.vuejs.org/guide/modules.html#binding-helpers-with-namespace)
+
+## 게시글 작성 /삭제 더미 데이터
+* 
