@@ -27,11 +27,11 @@ import { mapState } from 'vuex';
 export default {
   data() {
     return {
-    valid: false,
-    hideDetails: true,
-    successMessages: '',
-    success: false,
-    content: '',
+      valid: false,
+      hideDetails: true,
+      successMessages: '',
+      success: false,
+      content: '',
     };
   },
   computed: {
