@@ -287,3 +287,14 @@ data() {
 ## 게시글 작성 /삭제 더미 데이터
 * props로 받는 값들은 최대한 자세히 적어주는것이 좋다. ex) type, required같은 것들.
 * 게시글삭제는 vuetify에서 v-menu를 사용하여 더보기 부분에 붙여준다.
+  - state, action을 사용하여 mainPosts를 add, remove해준다.
+  - mutations는 history가 기록이 되고 actions는 기록이 되지 않는다.
+  - PostForm.vue를 통해서 post를 등록하고 PostCard에서 해당 post를 삭제 수정한다. 데이터는 posts.js에서 처리한다.(소스참조)
+
+## 댓글 작성 더미 데이터 처리
+* CommentForm.vue 컴포넌트 작성(소스참조)
+* PostCard.vue 에 댓글관련 코딩 작성
+* store/posts.js 에서 댓글 작성의 데이터 처리
+
+## 닉네임 수정 더미 데이터 처리
+* profile.vue파일에서 닉네임 수정하는 부분 작성.
