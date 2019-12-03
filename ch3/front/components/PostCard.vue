@@ -2,6 +2,11 @@
   <div style="margin-bottom: 20px">
     <v-card>
       <v-image />
+      <v-card-title>
+        <h3>
+          <nuxt-link :to="'/post/' + post.id">{{post.id}}</nuxt-link>
+        </h3>
+      </v-card-title>
       <v-card-text>
         <div>
           <h3>{{post.User.nickname}}</h3>
