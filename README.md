@@ -326,3 +326,15 @@ data() {
 * 사실 post/ 까지만 쳐서 들어가도 _id.vue식으로 만들면 들어가진다 그래서 _id폴더를 만들어서 적용하는것이 좋다.
   - 폴더로 만들어도 현재는 매칭이 되버린다. 이건 nuxt 버그로 등록되어있음. https://github.com/nuxt/nuxt.js/issues/5874
 
+## 인피니트 스크롤링 준비하기
+* pages/index.vue 화면에 적용.
+* store/posts.js 에서 사전 준비
+  - 전체 게시물 개수를 모르므로 계속 10개씩 가져와서 화면에 뿌린다.
+  - hasMorePost 로 뒤에 데이터가 더 있는지 없는지 여부 값
+
+## nuxt의 fetch와 인피니트 스크롤링 구현하기
+* 최초 메인화면은 게시물이 비어있는게 아니라 최소한 처음 게시물을 가져와 보여주어야한다.
+  - **fetch** 를 이용하여 최초데이터를 가져온다.
+  - 컴포넌트가 화면에 마운트 되기전에 fetch가 실행된다.
+  - pages/index.vue 에 fetch작성 store/posts.js에서 데이터 가져옴.
+  - mounted, beforeDestroy 라이프사이클 이용하여 인피니트 스크롤링 코딩.
