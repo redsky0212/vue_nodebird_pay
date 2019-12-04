@@ -364,4 +364,7 @@ data() {
 * **중요** data 값 바꿀때 array, json의 내부 아이템 값을 바꿀때는 this.$set을 사용해야 값이 바뀐다.
   - https://kr.vuejs.org/v2/guide/reactivity.html
 
-
+## 체크사항
+* 항상 버전이 같은지 파악 필요
+  - npm outdated   --- 오래된 버전들 보여줌.
+* Node.js 교과서 e북 1장~7장 까지 무료 이므로 읽어보기. (https://thebook.io/006982/)
