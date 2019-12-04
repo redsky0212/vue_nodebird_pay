@@ -4,12 +4,11 @@
       <v-img />
       <v-card-title>
         <h3>
-          <nuxt-link :to="'/post/' + post.id">{{post.id}}</nuxt-link>
+          <nuxt-link :to="'/user/' + post.id">{{post.User.nickname}}</nuxt-link>
         </h3>
       </v-card-title>
       <v-card-text>
         <div>
-          <h3>{{post.User.nickname}}</h3>
           <div>{{post.content}}</div>
         </div>
       </v-card-text>
@@ -55,6 +54,7 @@
 
 <script>
   import CommentForm from '~/components/CommentForm';
+
   export default {
     components: {
       CommentForm,
@@ -77,6 +77,7 @@
         });
       },
       onEditPost() {
+
       },
       onToggleComment() {
         this.commentOpened = !this.commentOpened;
@@ -85,5 +86,9 @@
   };
 </script>
 
-<style>
+<style scoped>
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 </style>

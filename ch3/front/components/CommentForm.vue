@@ -61,6 +61,7 @@
               this.hideDetails = false;
             })
             .catch(() => {
+
             });
         }
       },
@@ -69,4 +70,5 @@
 </script>
 
 <style>
+
 </style>

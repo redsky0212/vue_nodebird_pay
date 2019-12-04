@@ -336,5 +336,31 @@ data() {
 * 최초 메인화면은 게시물이 비어있는게 아니라 최소한 처음 게시물을 가져와 보여주어야한다.
   - **fetch** 를 이용하여 최초데이터를 가져온다.
   - 컴포넌트가 화면에 마운트 되기전에 fetch가 실행된다.
-  - pages/index.vue 에 fetch작성 store/posts.js에서 데이터 가져옴.
+  - pages/index.vue 에 fetch작성 store/posts.js에서 데이터 가져옴(this.$store.dispatch('posts/loadPosts');).
   - mounted, beforeDestroy 라이프사이클 이용하여 인피니트 스크롤링 코딩.
+  - window scroll 이벤트를 이용하여 스크롤링 구현.
+
+## virtualized list 이해하기
+* virtualized list는 직접 구현하기가 힘듬.
+  - 현재 화면에 보이는 부분만 리스트를 보이고 나머지 안보이는 부분은 메모리상의 값만 가지고 있다가 scroll했을때 보이게 처리하는 기능.
+  - 단점 : 높이가 정해져 있어야 하므로 유동적인 것에는 적용하기가 힘듬.
+* 유명한 vue 라이브러리 ( vue-virtual-scroll-list )
+
+## 더보기 구현
+* follow list부분에 적용(소스참조)
+* 더보기버튼의 단점
+  - 3개씩 불러왔을때 마지막과 딱 맞아 떨어질때 더보기버튼이 살아있는경우가 있음.
+  - 더보기버튼을 누르는 중에는 list의 개수가 늘어나는 경우가 있으므로 실무에서는 limit보다는 last id방식을 많이 사용한다.
+
+## 기타 라우트 구현 (동적라우트)
+* 해시태그 검색어 리스트 화면필요.
+* 사용자이름 눌렀을때 그 사용자가 쓴 글 리스트 화면 필요.
+* 
+
+## QnA
+* nuxt는 화면 앞뒤로 전환시 기본 스크롤 위치 기억하고 있다.
+  - 제어가 필요할땐 nuxt.config.js에서 작성할 수 있다.  ( https://ko.nuxtjs.org/api/configuration-router#scrollBehavior )
+* 개별페이지에서는 scrollToTop이라는 것도 있음. ( https://ko.nuxtjs.org/api/pages-scrolltotop/#scrolltotop-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0 )
+
+
+

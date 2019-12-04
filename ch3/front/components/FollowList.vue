@@ -1,38 +1,35 @@
 <template>
   <v-list>
-    <ul>
-      <li v-for="v in list" :key="v.nickname">
-        <span>{{v.nickname}}</span>
-        <v-icon @click="onRemoveFllow" :nickname="v.nickname" style="cursor:pointer">mdi-minus-circle-outline</v-icon>
-      </li>
-    </ul>
+    <v-col v-for="user in users" :key="user.id" cols="12" md="4" style="display: inline-block">
+      <v-list-item>
+        <v-list-item-avatar color="indigo">
+          <span class="white--text headline">{{user.nickname[0]}}</span>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title>{{user.nickname}}</v-list-item-title>
+        </v-list-item-content>
+        <v-list-item-action>
+          <v-icon @click="remove(user.id)">mdi-minus-circle-outline</v-icon>
+        </v-list-item-action>
+      </v-list-item>
+    </v-col>
   </v-list>
 </template>
 
 <script>
-export default {
-  props: {
-    list: {
-      type: Array,
-      required: false,
-    },
-    type: {
-      type: String,
-      required: true,
-    }
-  },
-  methods: {
-    onRemoveFllow(e){
-      if( confirm('삭제 하시겠습니까?') ){
-        const nickname = e.currentTarget.getAttribute('nickname');
-        this.$store.dispatch('users/removeFollow', {
-          nickname: nickname,
-          type: this.$props.type,
-        });
+  export default {
+    props: {
+      abc: Array,
+      users: {
+        type: Array,
+        required: true,
+      },
+      remove: {
+        type: Function,
+        required: true,
       }
-    }
+    },
   }
-}
 </script>
 
 <style>
