@@ -368,3 +368,5 @@ data() {
 * 항상 버전이 같은지 파악 필요
   - npm outdated   --- 오래된 버전들 보여줌.
 * Node.js 교과서 e북 1장~7장 까지 무료 이므로 읽어보기. (https://thebook.io/006982/)
+* 오래된 버전 npm update 해준 후 로그에 found 0 vulnerabilities 라는 값이 0이 아니면 취약점이 있다는 뜻이므로 
+  - npm audit fix 를 한번 쳐준다. --- 자동으로 취약점 고쳐주는 기능.
