@@ -361,6 +361,7 @@ data() {
 * nuxt는 화면 앞뒤로 전환시 기본 스크롤 위치 기억하고 있다.
   - 제어가 필요할땐 nuxt.config.js에서 작성할 수 있다.  ( https://ko.nuxtjs.org/api/configuration-router#scrollBehavior )
 * 개별페이지에서는 scrollToTop이라는 것도 있음. ( https://ko.nuxtjs.org/api/pages-scrolltotop/#scrolltotop-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0 )
-
+* **중요** data 값 바꿀때 array, json의 내부 아이템 값을 바꿀때는 this.$set을 사용해야 값이 바뀐다.
+  - https://kr.vuejs.org/v2/guide/reactivity.html
 
 
