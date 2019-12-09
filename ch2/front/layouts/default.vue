@@ -16,6 +16,9 @@
     <v-row no-gutters>
       <v-col cols="12" xs="12" md="4">
         <login-form />
+        <div>{{name}}</div>
+        <button @click="onTest">test click!</button>
+        <button @click.prevent="onTest2">원복</button>
       </v-col>
       <v-col cols="12" xs="12" md="8"><nuxt /></v-col>
     </v-row>
@@ -28,6 +31,19 @@ import LoginForm from '~/components/LoginForm';
 export default {
     components: {
         LoginForm
+    },
+    computed:{
+      name(){
+        return this.$store.state.posts.name;
+      }
+    },
+    methods:{
+      onTest(){
+        this.$store.commit('posts/addName')
+      },
+      onTest2(){
+        this.$store.commit('posts/removeName');
+      }
     }
 }
 </script>
