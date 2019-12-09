@@ -89,5 +89,5 @@ module.exports = {
 ```
 
 ## nuxt를 vuetify와 연결하기
-* 
+* npm i vuetify @nuxtjs/vuetify 설치
 
