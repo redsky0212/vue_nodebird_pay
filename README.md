@@ -12,7 +12,7 @@
 
 ## git
 * git에서 버전관리를 할 경우 node_modules, .nuxt같은 것들은 버전관리에서 빼줘야 하므로 미리 .gitignore파일을 만들어서 제외 항목을 작성한다.
-  - ignore 해야할 목록을 알려주는 사이트 (https://www.gitignore.io/)
+  - ignore 해야할 목록을 알려주는 사이트 [https://www.gitignore.io/](https://www.gitignore.io/)
 
 ## nuxt, vue설치하고 pages만들기
 * npm i vue nuxt
